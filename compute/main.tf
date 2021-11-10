@@ -14,7 +14,7 @@ provider "aws" {
 data "terraform_remote_state" "vpc" {
   backend = "remote"
   config = {
-    organization = "eroussel-training"
+    organization = "emrousselle-tfcb-sandbox"
     workspaces = {
       name = "hashicorp-demo-network"
     }
