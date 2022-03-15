@@ -18,4 +18,5 @@ variable "secret_value" {
     description = "The Secret Value"
     type = string
     sensitive = true
+    default = "mysecret"
 }
