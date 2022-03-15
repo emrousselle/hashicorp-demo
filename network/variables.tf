@@ -13,3 +13,9 @@ variable "sdlc_environment" {
         error_message = "The SDLC environment must be \"Development\", \"Staging\" or \"Production\"."
     }
 }
+
+variable "secret_value" {
+    description = "The Secret Value"
+    type = string
+    sensitive = true
+}
