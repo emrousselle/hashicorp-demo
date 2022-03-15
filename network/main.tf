@@ -18,6 +18,7 @@ resource "aws_vpc" "dev_vpc" {
   tags = { 
     Name = "${var.sdlc_environment} VPC"
     Environment = var.sdlc_environment
+    Sensitive = var.secret_value
   }
 
 }
