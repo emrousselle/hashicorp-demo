@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     aws = {
-      source = "hashicorp/aws"
+      source  = "hashicorp/aws"
       version = "3.49.0"
     }
   }
@@ -23,7 +23,7 @@ data "terraform_remote_state" "vpc" {
 
 
 data "aws_ami" "amazon_linux_2" {
-  owners = ["amazon"]
+  owners      = ["amazon"]
   most_recent = true
 
   filter {
@@ -34,14 +34,15 @@ data "aws_ami" "amazon_linux_2" {
 }
 
 resource "aws_instance" "vm" {
-    ami = data.aws_ami.amazon_linux_2.id
-    instance_type = "t2.micro"
+  ami           = data.aws_ami.amazon_linux_2.id
+  instance_type = "t2.micro"
 
-    subnet_id = data.terraform_remote_state.vpc.outputs.app1_development_subnet
+  subnet_id = data.terraform_remote_state.vpc.outputs.app1_development_subnet
 
-    tags = {
-        Name = "Worker VM"
-        Environment = "${var.sdlc_environment}"
-        Application = "App1"
-    }
+  tags = {
+    Name        = "Worker VM"
+    Environment = "${var.sdlc_environment}"
+    Application = "App1"
+    Owner       = var.owner
+  }
 }
