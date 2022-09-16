@@ -1,4 +1,11 @@
 terraform {
+  cloud {
+    organization = "emrousselle-tfcd-sandbox"
+    hostname = "app.terraform.io"
+    workspaces {
+      name = "hashicorp-demo-compute"
+    }
+  }
   required_providers {
     aws = {
       source  = "hashicorp/aws"
