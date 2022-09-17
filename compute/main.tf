@@ -1,7 +1,7 @@
 terraform {
   cloud {
-    organization = "emrousselle-tfcd-sandbox"
-    hostname = "app.terraform.io"
+    organization = "emrousselle-tfcb-sandbox"
+    hostname     = "app.terraform.io"
     workspaces {
       name = "hashicorp-demo-compute"
     }
